@@ -138,4 +138,18 @@ par2.textContent = data.secondParagraph;
 const par3 = document.createElement('p');
 article.appendChild(par3);
 par3.textContent = data.thirdParagraph;
+
+const artSpan = document.createElement('span');
+artSpan.classList.add('expandButton');
+article.appendChild(artSpan);
+artSpan.textContent = '\u25bc';
+artSpan.addEventListener('click', () =>{
+  article.classList.toggle('article-open');
+})
+return article;
 }
+
+const articles = document.querySelector('.articles');
+data.forEach(feed => {
+  articles.appendChild(articleCreate(feed));
+})
